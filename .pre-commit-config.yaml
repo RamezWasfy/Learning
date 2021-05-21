@@ -1,23 +1,26 @@
 repos:
-  - repo: meta
-    hooks:
-      - id: check-hooks-apply
-      - id: check-useless-excludes
   - repo: git://github.com/pre-commit/pre-commit-hooks
-    rev: v2.2.3
+    rev: v3.4.0
     hooks:
       - id: check-merge-conflict
       - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: detect-aws-credentials
+      - id: forbid-new-submodules
   - repo: https://github.com/gruntwork-io/pre-commit
-    rev: v0.0.9
+    rev: v0.1.12
     hooks:
       - id: shellcheck
   - repo: git://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.24.0
+    rev: v1.45.0
     hooks:
       - id: terraform_validate
       - id: terraform_fmt
       - id: terraform_docs
         args:
-           ['--args=--sort-inputs-by-required','--args=--with-aggregate-type-defaults']
-
+          - '--args=--sort-by-required'
+  - repo: git@github.com:thlorenz/doctoc
+    rev: v2.0.0
+    hooks:
+      - id: doctoc
+        language: system
