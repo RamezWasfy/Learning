@@ -16,6 +16,8 @@ repos:
     hooks:
       - id: terraform_validate
       - id: terraform_fmt
+      - id: terraform_tfsec
+      - id: terraform_tflint
       - id: terraform_docs
         args:
           - '--args=--sort-by-required'
